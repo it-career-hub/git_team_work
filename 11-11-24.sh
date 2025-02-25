@@ -92,13 +92,15 @@ fi
 # Описание: Скопировать все файлы с указанным расширением из исходной директории в целевую.
 # Действие: Копирование каждого файла с указанным расширением из исходной директории в целевую. Вывести сообщение о копировании каждого файла.
 
-# Создание целевого каталога, если он не существует
-git_team_work/250225=$1
-mkdir -p '$1'
-# Перебор файлов с указанным расширением в исходном каталоге
-for file in "$<директория>"/*.$<расширение файла>; do
-     if [ -f "$file" ]; then
-         cp "$file" "$1"
-         echo "Скопировано: $file"
-     fi
+read -p 'Enter file type: ' file_type
+echo 'Copying all files with' $file_type 'type from' $source_directory 'to' $target_directory
+
+
+for file in $source_directory/*$file_type; do
+	if [ -f $file ]; then
+		cp $file $target_directory
+		echo 'File' $file 'copied to' $target_directory
+	fi
 done
+
+echo 'All files with type' $file_type 'was copied from' $source_directory 'to' $target_directory
