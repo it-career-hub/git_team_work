@@ -37,7 +37,11 @@ fi
 # 2.Запросить расширение файлов для копирования
 # Описание: Запросить у пользователя указание расширения файлов, которые нужно скопировать.
 # Действие: Предложить пользователю ввести расширение файлов.
-# Использовать для сохранения переменную - file_extension 
+# Использовать для сохранения переменную - file_extension
+echo "Please enter the file extension:"
+read file_extension
+
+echo "you've chosen the next file extension: $file_extension" 
 
 # file extension request
 read -p "input the file extension: " file_extension
