@@ -34,6 +34,19 @@ fi
 # Использовать следующие переменне: Исходная директория - source_directory 
 # Целевая директория - target_directory
 
+# ___ odnabu ___
+# Запрашиваем исходную директорию
+echo "Enter the path to the SOURCE directory:"
+read source_directory
+
+# Запрашиваем целевую директорию
+echo "Enter the path to the TARGET directory:"
+read target_directory
+
+# Выводим введенные пути для проверки
+echo "SOURCE directory: $source_directory"
+echo "TARGET directory: $target_directory"
+
 # 2.Запросить расширение файлов для копирования
 # Описание: Запросить у пользователя указание расширения файлов, которые нужно скопировать.
 # Действие: Предложить пользователю ввести расширение файлов.
