@@ -8,8 +8,6 @@
 # Использовать следующие переменне: Исходная директория - source_directory 
 # Целевая директория - target_directory
 
-
-# ___ odnabu ___
 # Запрашиваем исходную директорию
 echo "Enter the path to the SOURCE directory:"
 read source_directory
@@ -54,7 +52,7 @@ if [ ! -w "$target_directory" ]; then
     exit 1
 fi
 
-f [ ! -d "$source_directory" ]; then
+if [ ! -d "$source_directory" ]; then
     echo "Error: Исходная директория '$source_directory' не существует или не является директорией."
     exit 1
 fi
@@ -74,33 +72,29 @@ if [ ! -w "$target_directory" ]; then
     exit 1
 fi
 
-
 # 4.Проверить наличие файлов с указанным расширением в исходной директории
 # Описание: Проверить, есть ли файлы с указанным расширением в исходной директории.
 # Действие: Поиск файлов с указанным расширением в исходной директории. Если файлы не найдены, вывести сообщение об ошибке.
 # Прервать работу скрипта с кодом 1
-DIRECTORY=$1
-EXTENSION=$2
 
-if ls "$DIRECTORY"/*."$EXTENSION" 1> /dev/null 2>&1; then
-	echo "Файлы с расширением .$EXTENSION найдены в директории $DIRECTORY"
+if ls "$source_directory"/*."$file_extension" 1> /dev/null 2>&1; then
+	echo "Файлы с расширением .$file_extension найдены в директории $source_directory"
 else
-	echo "Ошибка: В директории $DIRECTORY нет файлов с расширением .$EXTENSION"
+	echo "Ошибка: В директории $source_directory нет файлов с расширением .$file_extension"
 	exit 1
 fi
+
 # 5.Скопировать файлы с указанным расширением в целевую директорию
 # Описание: Скопировать все файлы с указанным расширением из исходной директории в целевую.
 # Действие: Копирование каждого файла с указанным расширением из исходной директории в целевую. Вывести сообщение о копировании каждого файла.
 
-read -p 'Enter file type: ' file_type
-echo 'Copying all files with' $file_type 'type from' $source_directory 'to' $target_directory
+echo 'Copying all files with' $file_extension 'type from' $source_directory 'to' $target_directory
 
-
-for file in $source_directory/*$file_type; do
+for file in $source_directory/*$file_extension; do
 	if [ -f $file ]; then
 		cp $file $target_directory
 		echo 'File' $file 'copied to' $target_directory
 	fi
 done
 
-echo 'All files with type' $file_type 'was copied from' $source_directory 'to' $target_directory
+echo 'All files with type' $file_extension 'was copied from' $source_directory 'to' $target_directory
