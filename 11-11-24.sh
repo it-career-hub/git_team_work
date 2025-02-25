@@ -1,28 +1,28 @@
 #!/bin/bash
 
-read -p "Введите путь к исходной директории: " source_dir
-read -p "Введите путь к целевой директории: " target_dir
-read -p "Введите расширение файлов (например, txt): " extension
+# 3. Проверка существования и доступности исходной и целевой директорий
 
-if [[ ! -d "$source_dir" ]]; then
-    echo "Ошибка: Исходная директория '$source_dir' не существует."
+
+if [ ! -d "$source_directory" ]; then
+    echo "Error: Исходная директория '$source_directory' не существует или не является директорией."
     exit 1
 fi
 
-
-if [[ ! -d "$target_dir" ]]; then
-    echo "Целевая директория '$target_dir' не существует. Создаю..."
-    mkdir -p "$target_dir"
-fi
-
-if ! ls "$source_dir"/*."$extension" &>/dev/null; then
-    echo "Ошибка: В исходной директории нет файлов с расширением .$extension."
+if [ ! -r "$source_directory" ]; then
+    echo "Error: Нет доступа для чтения исходной директории '$source_directory'."
     exit 1
 fi
 
-cp "$source_dir"/*."$extension" "$target_dir"
+if [ ! -d "$target_directory" ]; then
+    echo "Error: Целевая директория '$target_directory' не существует или не является директорией."
+    exit 1
+fi
 
-echo "Файлы с расширением .$extension успешно скопированы в '$target_dir'."
+if [ ! -w "$target_directory" ]; then
+    echo "Error: Нет доступа для записи в целевую директорию '$target_directory'."
+    exit 1
+fi
+
 
 
 # Cкрипт, который будет выполнять следующую задачу: копировать все файлы с определенным расширением из одной директории в другую.
