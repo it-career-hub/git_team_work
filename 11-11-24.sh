@@ -1,4 +1,4 @@
-#!/bin/bash
+u#!/bin/bash
 
 # Cкрипт, который будет выполнять следующую задачу: копировать все файлы с определенным расширением из одной директории в другую.
 
@@ -30,8 +30,10 @@ read file_extension
 # Действие: Проверить существование и доступность директорий. Если они не существуют или недоступны, вывести сообщение об ошибке.
 # Прервать работу скрипта с кодом 1
 
-if [! -d $target_directory]; do
-mkdir $target_directory
+if [! -d "$target_directory"]; do
+echo "given directory does not exist"
+mkdir "$target_directory"
+echo "target directory has been created"
 fi
 
 
@@ -47,9 +49,9 @@ fi
 # Описание: Скопировать все файлы с указанным расширением из исходной директории в целевую.
 # Действие: Копирование каждого файла с указанным расширением из исходной директории в целевую. Вывести сообщение о копировании каждого файла.
 
-for file in $source_directory/*.$file_extention; do 
+for file in "$source_directory"/*."$file_extention"; do 
 	 if [ -f "$file" ]; then
-		cp $file $destination_directory
-		echo "file $file has been copied"
+		cp "$file" $destination_directory
+		echo "file "$file" has been copied"
 	fi
 done
