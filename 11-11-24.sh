@@ -1,31 +1,5 @@
 #!/bin/bash
 
-
-# 3. Проверка существования и доступности исходной и целевой директорий
-
-
-if [ ! -d "$source_directory" ]; then
-    echo "Error: Исходная директория '$source_directory' не существует или не является директорией."
-    exit 1
-fi
-
-if [ ! -r "$source_directory" ]; then
-    echo "Error: Нет доступа для чтения исходной директории '$source_directory'."
-    exit 1
-fi
-
-if [ ! -d "$target_directory" ]; then
-    echo "Error: Целевая директория '$target_directory' не существует или не является директорией."
-    exit 1
-fi
-
-if [ ! -w "$target_directory" ]; then
-    echo "Error: Нет доступа для записи в целевую директорию '$target_directory'."
-    exit 1
-fi
-
-
-
 # Cкрипт, который будет выполнять следующую задачу: копировать все файлы с определенным расширением из одной директории в другую.
 
 # 1.Запросить исходную и целевую директории у пользователя
@@ -33,6 +7,7 @@ fi
 # Действие: Предложить пользователю ввести пути к исходной и целевой директориям.
 # Использовать следующие переменне: Исходная директория - source_directory 
 # Целевая директория - target_directory
+
 
 # ___ odnabu ___
 # Запрашиваем исходную директорию
@@ -59,6 +34,46 @@ read -p "input the file extension: " file_extension
 # Описание: Проверить, существуют ли и доступны ли исходная и целевая директории.
 # Действие: Проверить существование и доступность директорий. Если они не существуют или недоступны, вывести сообщение об ошибке.
 # Прервать работу скрипта с кодом 1
+if [ ! -d "$source_directory" ]; then
+    echo "Error: Исходная директория '$source_directory' не существует или не является директорией."
+    exit 1
+fi
+
+if [ ! -r "$source_directory" ]; then
+    echo "Error: Нет доступа для чтения исходной директории '$source_directory'."
+    exit 1
+fi
+
+if [ ! -d "$target_directory" ]; then
+    echo "Error: Целевая директория '$target_directory' не существует или не является директорией."
+    exit 1
+fi
+
+if [ ! -w "$target_directory" ]; then
+    echo "Error: Нет доступа для записи в целевую директорию '$target_directory'."
+    exit 1
+fi
+
+f [ ! -d "$source_directory" ]; then
+    echo "Error: Исходная директория '$source_directory' не существует или не является директорией."
+    exit 1
+fi
+
+if [ ! -r "$source_directory" ]; then
+    echo "Error: Нет доступа для чтения исходной директории '$source_directory'."
+    exit 1
+fi
+
+if [ ! -d "$target_directory" ]; then
+    echo "Error: Целевая директория '$target_directory' не существует или не является директорией."
+    exit 1
+fi
+
+if [ ! -w "$target_directory" ]; then
+    echo "Error: Нет доступа для записи в целевую директорию '$target_directory'."
+    exit 1
+fi
+
 
 # 4.Проверить наличие файлов с указанным расширением в исходной директории
 # Описание: Проверить, есть ли файлы с указанным расширением в исходной директории.
