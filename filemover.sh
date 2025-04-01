@@ -44,7 +44,7 @@ echo "Введите путь каталога, в который вы хоти�
 read target_directory
 
 files=$(find . -type f -name "*.$file_extension")
-
+  
 if [ -z "$files" ];
 	 then
   echo "Файлов с расширением .$file_extension не найдено."
