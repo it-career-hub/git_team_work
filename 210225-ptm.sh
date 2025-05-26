@@ -26,4 +26,11 @@ if [ -z "$matching_files" ]; then
    exit 1
 fi
 
+# Копирование файлов с указанным расширением в целевую директорию
+for file in $matching_files; do
+cp "$file" "$target_directory"
+echo "Скопирован файл: $file"
+done
+echo "Готово."
+
 
