@@ -17,6 +17,13 @@ echo "Директория '$target_directory' не существует или 
 exit 1
 fi
 
+# Проверка, есть ли файлы с указанным расширением в исходной директории
+matching_files=$(find "$source_directory" -maxdepth 1 -type f -name"*.$file_extension")
+if [ -z "$matching_files" ]; then
+echo "В директории '$source_directory' нет файлов с расширением'.$file_extension'."
+exit 1
+fi
+
 # Копирование файлов с указанным расширением в целевую директорию
 for file in $matching_files; do
 cp "$file" "$target_directory"
