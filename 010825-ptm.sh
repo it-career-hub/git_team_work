@@ -14,3 +14,6 @@ if [ ! -d "$target_directory" ]; then
 echo "Директория '$target_directory' не существует или недоступна."
 exit 1
 fi
+# Проверка, есть ли файлы с указанным расширением в исходной директории
+matching_files=$(find "$source_directory" -maxdepth 1 -type f -name
+"
