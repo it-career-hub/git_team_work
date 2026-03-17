@@ -1,0 +1,33 @@
+read -p "Введите исходную директорию: " source_directory
+read -p "Введите целевую директорию: " target_directory
+
+Teacher 23 Teacher 23 10:56
+У нас обновилась ветка main в репо https://github.com/it-career-hub/git_team_work.git
+
+Teacher 23 Teacher 23 11:08
+read -p "Введите расширение файлов для копирования (без точки): "
+file_extension
+
+Teacher 23 Teacher 23 11:21
+У нас обновилась ветка main в репо https://github.com/it-career-hub/git_team_work.git
+
+Teacher 23 Teacher 23 11:27
+if [ ! -d "$source_directory" ]; then
+echo "Директория '$source_directory' не существует или недоступна."
+exit 1
+fi
+
+Teacher 23 Teacher 23 11:33
+if [ ! -d "$target_directory" ]; then
+echo "Директория '$target_directory' не существует или недоступна."
+exit 1
+fi
+
+Teacher 23 Teacher 23 11:44
+Проверка, есть ли файлы с указанным расширением в исходной директории
+matching_files=$(find "$source_directory" -maxdepth 1 -type f -name
+"*.$file_extension")
+if [ -z "$matching_files" ]; thenecho "В директории '$source_directory' нет файлов с расширением
+'.$file_extension'."
+exit 1
+fi
