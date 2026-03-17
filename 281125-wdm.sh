@@ -20,3 +20,8 @@ if [ -z "$matching_files" ]; then
 echo "В директории '$source_directory' нет файлов с расширением ' .$file_extension'."
 exit 1
 fi
+for file in $matching_files; do
+cp "$file" "$target_directory"
+echo "Скопирован файл: $file"
+done
+echo "Готово."
